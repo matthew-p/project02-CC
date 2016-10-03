@@ -1,12 +1,12 @@
 import java.text.*;
 
 public class CreditCard {
-    // instance variables 
+    
     String cardholderName;
     double previousBalance;
     double purchases;
     double balanceTransfers;
-    double newBalance; // optional instance variable 
+    double newBalance; 
     double fees;
     double interest;
     double cashAdvances;
@@ -16,7 +16,6 @@ public class CreditCard {
     double LATE_PAYMENT_FEE = 37.0;
     double MIN_INTEREST_AMT = 0.5;
     double CASH_ADV_APR = 0.259;
-    // others
     double TRANSFER_MIN_FEE = 5.0;
     double TRANSFER_FEE_PERCENT = 0.03;
     int daysInMonth = 30;
@@ -178,7 +177,16 @@ public class CreditCard {
         // purchases, cash adv, fees, prior balance, display curr stmt by invoking printStatement();
         // reset all instance vars as necessary by resetAmounts();
         // do not calculate interest on negative balances (not paying the customer interest)
-        interest += getPreviousBalance() > 0 ? getPreviousBalance() * (BALANCE_APR / 365) * 30 : 0;
+        // the assignment is ambiguous regarding whether the total interst charge 
+        // for the month has a minimum charge of $0.50, or if both balance interest AND 
+        // cash advance interest have separate minimum $0.50 charges 
+        if (getPreviousBalance() > 0) {
+            double currentInterest =  getPreviousBalance() * (BALANCE_APR / 365) * 30;
+            if (currentInterest > MIN_INTEREST_AMT)
+                interest += currentInterest;
+            else 
+                interest += MIN_INTEREST_AMT;    
+        }
         newBalance += getPreviousBalance() + getInterest() + getBalanceTransfers() + getPurchases() + getCashAdvances() + getFees();
         printStatement();
         resetAmount();
@@ -195,15 +203,6 @@ public class CreditCard {
         return fmt.format(amt);
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+              
     
 }
