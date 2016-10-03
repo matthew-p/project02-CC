@@ -191,18 +191,11 @@ public class CreditCard {
         printStatement();
         resetAmount();
     }
-    // 1) update necessary methods to prevent user from entering negative values to parameters
-    // by ignorning them, no action taken if amt == neg, or day not 1-30
-    // 2) use NumberFormat to display all monetary values in currency format
-    // 3) define instance var used to format currency val:
 
-    // create test class
     private String dollarFormat(double amt) {
         NumberFormat fmt = NumberFormat.getCurrencyInstance();
         
         return fmt.format(amt);
     }
-    
-              
     
 }
