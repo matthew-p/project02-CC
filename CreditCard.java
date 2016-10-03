@@ -98,7 +98,7 @@ public class CreditCard {
             System.out.println("Purchase of " + dollarFormat(amt));
         }
         else 
-            System.out.println("Request Cancled: Purchases must be positive amounts. Use applyCredit() in stead.");
+            System.out.println("Request Cancled: Purchases must be positive amounts. Use applyCredit() instead.");
     }
     public void cashAdvance(double amt, int day) {
         // update cash adv bal & interest, day == day adv made, interest calc apply cash adv apr
