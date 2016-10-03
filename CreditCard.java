@@ -72,7 +72,7 @@ public class CreditCard {
     public void applyCredit (double amt) {
         // reduce purchases by amt, display message
         if (amt < 0) 
-            System.out.println("Request Cancled: Credits need to be positive values. Use purchase() instead.");
+            System.out.println("Request Canceled: Credits need to be positive values. Use purchase() instead.");
         else {
             purchases -= amt;
             System.out.println("Credit applied of: " + dollarFormat(amt));
@@ -87,7 +87,7 @@ public class CreditCard {
             System.out.println("Balance transfer of " + dollarFormat(amt));
         }
         else
-            System.out.println("Request Cancled: balance transfers must be positive.");
+            System.out.println("Request Canceled: balance transfers must be positive.");
     }
     public void purchase (double amt) {
         // update purchase balance and increment number of purchases, display message
@@ -97,7 +97,7 @@ public class CreditCard {
             System.out.println("Purchase of " + dollarFormat(amt));
         }
         else 
-            System.out.println("Request Cancled: Purchases must be positive amounts. Use applyCredit() instead.");
+            System.out.println("Request Canceled: Purchases must be positive amounts. Use applyCredit() instead.");
     }
     public void cashAdvance(double amt, int day) {
         // update cash adv bal & interest, day == day adv made, interest calc apply cash adv apr
@@ -112,7 +112,7 @@ public class CreditCard {
             System.out.println("Cash advance on Day " + day + ": " + dollarFormat(amt));
         }
         else if (amt < 0)
-            System.out.println("Request Cancled: Amount must be positive.");
+            System.out.println("Request Canceled: Amount must be positive.");
         else if (day < 0 || day > 30)
             System.out.println("Day out of range, must be 1 - 30.");
     }
@@ -168,9 +168,9 @@ public class CreditCard {
             System.out.println("Payment on Day " + day + ": " + dollarFormat(amt));
         }
         else if (amt < 0) 
-            System.out.println("Request Cancled: amount must be positive.");
+            System.out.println("Request Canceled: amount must be positive.");
         else if (day < 0 || day > 30) 
-            System.out.println("Request Cancled: Day out of range, must be 1 - 30.");
+            System.out.println("Request Canceled: Day out of range, must be 1 - 30.");
     }
     public void closeBillingPeriod() {
         // calc interest on prior balance by apply bal APR, add interest, transfer,
